@@ -72,7 +72,7 @@
     
     @keyframes filmSlide {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-150%); }
+      100% { transform: translateX(-300%); }
     }
     
     @keyframes heartBeat {
@@ -131,7 +131,7 @@
     
     .film-strip {
       display: flex;
-      animation: filmSlide 7s linear infinite;
+      animation: filmSlide 12s linear infinite;
     }
     
     .film-frame {
@@ -464,7 +464,7 @@
      </svg>
     </div>
    </div>
-   <h2 class="dancing text-4xl md:text-5xl text-white text-center mb-8 relative z-10" style="text-shadow: 2px 2px 15px rgba(0,0,0,0.3);">Our Memories Together 🎬</h2><!-- Film Strip Container -->
+   <h2 class="dancing text-4xl md:text-5xl text-white text-center mb-8 relative z-10" style="text-shadow: 2px 2px 15px rgba(0,0,0,0.3);">Some More Of You !🎬</h2><!-- Film Strip Container -->
    <div class="w-full overflow-hidden relative z-10" style="background: rgba(0,0,0,0.3); padding: 20px 0; border-radius: 10px;">
     <div class="film-strip" id="film-strip"><!-- Film frames will be generated dynamically -->
     </div>
@@ -629,8 +629,17 @@
           border-radius: 2px;
           transition: transform 0.3s ease;
         `;
-        innerContent.innerHTML = `<span style="color: #c24b6e; font-size: 12px; font-weight: bold;">Photo ${(i % 10) + 1}</span>`;
         
+        const images = [
+  'https://cdn.imgchest.com/files/04af33dd8584.jpg',
+  'https://cdn.imgchest.com/files/f04677f4c65d.jpg',
+  'https://cdn.imgchest.com/files/4d238b26af7a.jpg',
+  'https://cdn.imgchest.com/files/b7e6f5ff6d7b.jpg',
+];
+        innerContent.innerHTML = `
+  <img src="${images[i % images.length]}"
+       style="width:100%; height:100%; object-fit:cover; border-radius:2px;" />
+`;        
         frame.appendChild(innerContent);
         
         // Add touch/click effect
